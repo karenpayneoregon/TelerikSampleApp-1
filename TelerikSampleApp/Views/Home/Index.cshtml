@@ -55,13 +55,20 @@
                 .Name("grid")
                 .Columns(columns =>
                 {
-                    columns.Bound(p => p.ProductId).Filterable(false);
-                    columns.Bound(p => p.ProductName);
-                    columns.Bound(p => p.DiscontinuedDate).Format("{0:MM/dd/yyyy}");
+                    //columns.Bound(p => p.ProductId).Filterable(false);
+                    columns.Bound(p => p.ProductName)
+                        .Width(300);
+
+                    columns.Bound(p => p.DiscontinuedDate)
+                        .Format("{0:MM/dd/yyyy}")
+                        .Title("Dis Date").Width(100);
+
                     columns.Bound(p => p.UnitPrice);
+
                     columns.Command(c=> {
                         c.Edit();
                         c.Destroy();
+
                     });
                 })
                 .ToolBar(t=>t.Create())
