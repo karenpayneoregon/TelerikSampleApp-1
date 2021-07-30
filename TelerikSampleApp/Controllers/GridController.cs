@@ -11,21 +11,32 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TelerikSampleApp.Controllers
 {
+    /// <summary>
+    /// Karen notes
+    /// - There are two different ways for connecting to the database.
+    ///   Originally all connection were done one at a time which is correct,
+    ///   the method <see cref="GetContactsAsync"/> uses a static instance which is not recommended,
+    ///   shown here for not what to do.
+    /// </summary>
     public class GridController : Controller
     {
-        //private readonly NorthWind2020Context _context;
-        //public GridController(NorthWind2020Context context)
-        //{
-        //    _context = context;
-        //}
+        private static NorthWind2020Context _northWind2020Context;
+        public GridController(NorthWind2020Context context)
+        {
+            _northWind2020Context = context;
+        }
 
 
         public static async Task<List<ContactItem>> GetContactsAsync()
         {
+            
             return await Task.Run(async () =>
             {
-                await using var context = new NorthWind2020Context();
-                return await context.Contacts
+                // KP recommended
+                //await using var context =  new NorthWind2020Context();
+                
+                // not recommended
+                return await _northWind2020Context.Contacts
                     .AsNoTracking()
                     .Include(contact => contact.ContactTypeIdentifierNavigation)
                     .Include(c => c.ContactDevices)

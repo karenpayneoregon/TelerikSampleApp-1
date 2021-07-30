@@ -38,8 +38,14 @@ namespace TelerikSampleApp
             // Add Kendo UI services to the services container
             services.AddKendo();
 
+            /*
+             * https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-strings
+             */
             services.AddDbContext<NorthWind2020Context>(options =>
                                 options.UseSqlServer(Configuration.GetConnectionString("NorthWind2020Context")));
+            
+            
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 
 #nullable disable
 
@@ -12,9 +13,9 @@ namespace TelerikSampleApp.Models
         {
         }
 
-        public NorthWind2020Context(DbContextOptions<NorthWind2020Context> options)
-            : base(options)
+        public NorthWind2020Context(DbContextOptions<NorthWind2020Context> options) : base(options)
         {
+            
         }
 
         public virtual DbSet<BusinessEntityPhone> BusinessEntityPhones { get; set; }
@@ -32,12 +33,24 @@ namespace TelerikSampleApp.Models
         public virtual DbSet<Shipper> Shippers { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            //if (!optionsBuilder.IsConfigured)
+            //{
+            //    optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=NorthWind2020;Trusted_Connection=True;");
+            //}
+
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=NorthWind2020;Trusted_Connection=True;");
+                IConfigurationRoot configuration = new ConfigurationBuilder()
+                    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                    .AddJsonFile("appsettings.json")
+                    .Build();
+                optionsBuilder.UseSqlServer(configuration.GetConnectionString("NorthWind2020Context"));
             }
+
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
