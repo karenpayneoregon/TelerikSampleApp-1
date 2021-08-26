@@ -15,7 +15,7 @@ namespace TelerikSampleApp.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "This code sample was a joint effort between Progress and Karen Payne";
 
             return View();
         }

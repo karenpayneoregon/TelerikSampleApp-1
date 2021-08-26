@@ -42,10 +42,17 @@ namespace TelerikSampleApp
              * https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-strings
              */
             services.AddDbContext<NorthWind2020Context>(options =>
-                                options.UseSqlServer(Configuration.GetConnectionString("NorthWind2020Context")));
-            
-            
-            
+                options.UseSqlServer(Configuration.GetConnectionString("NorthWind2020Context")));
+
+            /*
+             * https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-compilation?view=aspnetcore-3.0&tabs=visual-studio
+             */
+
+#if DEBUG
+            services.AddRazorPages().AddRazorRuntimeCompilation();
+#endif
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

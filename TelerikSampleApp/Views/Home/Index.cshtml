@@ -56,34 +56,33 @@
                 .Columns(columns =>
                 {
                     //columns.Bound(p => p.ProductId).Filterable(false);
-                    columns.Bound(p => p.ProductName)
+                    columns.Bound(product => product.ProductName)
                         .Width(300);
 
-                    columns.Bound(p => p.DiscontinuedDate)
+                    columns.Bound(product => product.DiscontinuedDate)
                         .Format("{0:MM/dd/yyyy}")
                         .Title("Dis Date").Width(100);
 
-                    columns.Bound(p => p.UnitPrice);
+                    columns.Bound(product => product.UnitPrice);
 
-                    columns.Command(c=> {
-                        c.Edit();
-                        c.Destroy();
+                    columns.Command(c=> {c.Edit();c.Destroy();
 
                     });
                 })
-                .ToolBar(t=>t.Create())
+                .ToolBar(toolBar=>toolBar.Create())
                 .Pageable()
                 .Sortable()
+                .Resizable(r => r.Columns(true))
                 .Scrollable()
                 .Filterable()
                 .HtmlAttributes(new { style = "height:550px;" })
                 .DataSource(dataSource => dataSource
                         .Ajax()
                         .PageSize(25)
-                        .Model(m=>
+                        .Model(factory=>
                         {
-                            m.Id(id => id.ProductId);
-                            m.Field(f => f.ProductId).Editable(false);
+                            factory.Id(id => id.ProductId);
+                            factory.Field(f => f.ProductId).Editable(false);
                         })
                         .Read(read => read.Action("Products_Read", "Grid"))
                         .Create(create => create.Action("Products_Create", "Grid"))

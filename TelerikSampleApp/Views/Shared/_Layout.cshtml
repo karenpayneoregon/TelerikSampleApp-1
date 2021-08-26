@@ -15,16 +15,18 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-	<link href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.default-v2.min.css" rel="stylesheet" type="text/css" />
-	<script src="https://kendo.cdn.telerik.com/2021.2.616/js/jquery.min.js"></script>
-	<script src="https://kendo.cdn.telerik.com/2021.2.616/js/jszip.min.js"></script>
-	<script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.all.min.js"></script>
-	<script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.aspnetmvc.min.js"></script>
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.default-v2.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://kendo.cdn.telerik.com/2021.2.616/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2021.2.616/js/jszip.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.aspnetmvc.min.js"></script>
 </head>
-<body class="k-content">
+@* <body class="k-content"> *@
+<body class="container">
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid d-flex justify-content-between p-0">
-            <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">Your .NET Core Application</a>
+            <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">OED .NET Core Application</a>
             <button id="configure" class="k-rpanel-toggle k-button k-primary btn-toggle">
                 <span class="k-icon k-i-menu"></span>
             </button>
@@ -32,7 +34,7 @@
     </nav>
     <div id="responsive-panel" class="navbar navbar-dark bg-light mb-4">
         <kendo-responsivepanel name="responsive-panel" auto-close="false" breakpoint="768" orientation="top">
-            
+
         </kendo-responsivepanel>
     </div>
 
@@ -45,7 +47,7 @@
     <footer class="footer text-center d-flex align-items-center">
         <div class="container-fluid">
             <p class="text-muted">
-                Copyright © @DateTime.Now.Year Progress Software Corporation and/or its subsidiaries or affiliates. All rights reserved.
+                @*Copyright © @DateTime.Now.Year Progress Software Corporation and/or its subsidiaries or affiliates. All rights reserved.*@
             </p>
         </div>
     </footer>
