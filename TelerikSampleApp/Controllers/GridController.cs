@@ -56,7 +56,7 @@ namespace TelerikSampleApp.Controllers
         public async Task<ActionResult> Contacts_Read([DataSourceRequest] DataSourceRequest request)
         {
             var dsResult = await GetContactsAsync();
-            return Json(dsResult.ToDataSourceResult(request));
+            return Json(await dsResult.ToDataSourceResultAsync(request));
         }
 
         public ActionResult Products_Read([DataSourceRequest] DataSourceRequest request)

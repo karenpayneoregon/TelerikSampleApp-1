@@ -1,12 +1,19 @@
 ﻿@{
-    ViewData["Title"] = "About this project";
+    ViewData["Title"] = "About";
 }
 
-<section class="jumbotron text-center">
+<style>
+    .jBackColor {
+        background-color: lightgoldenrodyellow;
+    }
+</style>
+
+<section class="jumbotron text-center ">
     <div class="container">
-        <h1 class="jumbotron-heading">@ViewBag.Title.</h1>
+        <h1 class="jumbotron-heading">@ViewBag.Title</h1>
         <p class="lead-text text-muted">@ViewBag.Message</p>
+        <p>Using Entity Framework Core access a NorthWind database</p>
     </div>
 </section>
 
-<p>Footer here</p>
+<p>OED Code sample</p>

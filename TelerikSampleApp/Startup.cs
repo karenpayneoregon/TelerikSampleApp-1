@@ -49,6 +49,10 @@ namespace TelerikSampleApp
              */
 
 #if DEBUG
+            /*
+             * Requires package Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+             * https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-compilation?view=aspnetcore-5.0&tabs=visual-studio
+             */
             services.AddRazorPages().AddRazorRuntimeCompilation();
 #endif
 
