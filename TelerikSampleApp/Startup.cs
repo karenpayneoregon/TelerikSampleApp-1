@@ -28,6 +28,7 @@ namespace TelerikSampleApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             // Add framework services.
             services
                 .AddControllersWithViews()
@@ -53,7 +54,10 @@ namespace TelerikSampleApp
              * Requires package Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
              * https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-compilation?view=aspnetcore-5.0&tabs=visual-studio
              */
-            services.AddRazorPages().AddRazorRuntimeCompilation();
+            //services.AddRazorPages().AddRazorRuntimeCompilation();
+            //services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            //services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
 #endif
 
 

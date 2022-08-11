@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace TelerikSampleApp.Controllers
@@ -10,6 +11,10 @@ namespace TelerikSampleApp.Controllers
     {
         public IActionResult Index()
         {
+            //Setting TLS 1.2 protocol
+            //ServicePointManager.Expect100Continue = true;
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             return View();
         }
 
